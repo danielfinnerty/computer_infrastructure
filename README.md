@@ -6,7 +6,7 @@ by: Daniel Finnerty
 
 This project provides a clear demonstration of the learnings gained both from the computer infrastructure module, and additional research performed to suplement these learnings. This is achieved through the use of the  following Python packages.
 
-- 
+- yfinance
 - 
 - 
 
