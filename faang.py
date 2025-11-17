@@ -12,6 +12,9 @@ import pandas as pd
 # Matplotlib for creating plots
 import matplotlib.pyplot as plt
 
+# Listing file in a folder
+import os
+
 # Pull previous 5 days of data
 get_data = yf.download(['META', 'AAPL', 'AMZN', 'NFLX', 'GOOG'], period= '5d', interval= '1h')
 
@@ -24,11 +27,17 @@ get_data.to_csv('data/' + time_stamp + '.csv')
 # Specify data folder as location to find the file.
 datadir = './data/'
 
-# Specify the filename, which is the same time stamp as when the data is pulled.
-filename=f'{time_stamp}.csv'
+# Data files
+data_files = os.listdir('./data/')
+
+# Sort the list of files.
+data_files.sort(reverse=True)
+
+# Specify first file in data_files group
+latest = data_files[0]
 
 # Read in the CSV file
-df= pd.read_csv(datadir + filename, index_col=0, header=[0,1])
+df= pd.read_csv(datadir + latest, index_col=0, header=[0,1])
 
 # Create plot of data
 plot_data = df['Close'].plot(title = 'Closing over Previous 5 Days', xlabel='Date', ylabel='Value (USD)')
@@ -40,5 +49,11 @@ plt.xticks(rotation=45)
 # Source: https://stackoverflow.com/questions/25068384/bbox-to-anchor-and-loc-in-matplotlib
 plot_data.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
-# Save plot to 'plot' folder
-plt.savefig('plots/' + time_stamp)
+# Current date & time for plot save file
+now = dt.datetime.now()
+
+# File name.
+filename = "./plots/" + now.strftime("%Y%m%d-%H%M%S") + ".png"
+
+# Save figure.
+plt.savefig(filename, dpi=500)
