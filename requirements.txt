@@ -4,4 +4,3 @@ yfinance
 pandas
 datetime
 matplotlib
-os
