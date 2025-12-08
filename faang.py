@@ -55,5 +55,10 @@ now = dt.datetime.now()
 # File name.
 filename = "./plots/" + now.strftime("%Y%m%d-%H%M%S") + ".png"
 
+# Adjust plot layout area
+# Source: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html
+plt.tight_layout()
+
 # Save figure.
-plt.savefig(filename, dpi=500)
+# Source: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.savefig.html
+plt.savefig(filename, dpi=500, bbox_inches= 'tight')
