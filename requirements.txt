@@ -2,5 +2,4 @@ ipython
 numpy
 yfinance
 pandas
-datetime
 matplotlib
