@@ -12,11 +12,15 @@ import pandas as pd
 # Matplotlib for creating plots
 import matplotlib.pyplot as plt
 
+# Import for shorter xaxis dates
+import matplotlib.dates as mdates
+
 # Listing file in a folder
 import os
 
 # Pull previous 5 days of data
-get_data = yf.download(['META', 'AAPL', 'AMZN', 'NFLX', 'GOOG'], period= '5d', interval= '1h')
+get_data = yf.download(['META', 'AAPL', 'AMZN', 'NFLX', 'GOOG'],
+                       period= '5d', interval= '1h')
 
 # Generate time stamp of when data was pulled
 time_stamp = dt.datetime.now().strftime('%Y%m%d-%H%M%S')
@@ -40,10 +44,19 @@ latest = data_files[0]
 df= pd.read_csv(datadir + latest, index_col=0, header=[0,1])
 
 # Create plot of data
-plot_data = df['Close'].plot(title = 'Closing over Previous 5 Days', xlabel='Date', ylabel='Value (USD)')
+plot_data = df['Close'].plot(title = 'Closing over Previous 5 Days', xlabel='Date',
+                             ylabel='Value (USD)')
+
+# Create shorter date format for plot
+# Source: https://matplotlib.org/stable/api/_as_gen/matplotlib.axis.Axis.set_major_formatter.html
+plot_data.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+
+# Add minor ticks
+# Source: https://matplotlib.org/stable/gallery/text_labels_and_annotations/date.html#sphx-glr-gallery-text-labels-and-annotations-date-py
+plot_data.xaxis.set_minor_locator(mdates.DayLocator())
 
 # Rotate x-axis lables 45°
-plt.xticks(rotation=45)
+plt.xticks(rotation=45, horizontalalignment='right')
 
 # Move legend off chart area
 # Source: https://stackoverflow.com/questions/25068384/bbox-to-anchor-and-loc-in-matplotlib
