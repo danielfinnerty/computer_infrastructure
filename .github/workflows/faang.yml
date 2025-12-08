@@ -7,7 +7,7 @@ on:
   workflow_dispatch:        # allows manual run
   schedule:
     # From: https://crontab.guru/#5_9_*_*_6
-    - cron: "5 9 * * 6"     # runs at 09:05 every Saturday
+    - cron: "50 18 * * *"     # runs at 09:05 every Saturday
 
 permissions:
   contents: write   # required to push changes
