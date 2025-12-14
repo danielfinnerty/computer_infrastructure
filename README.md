@@ -4,16 +4,20 @@ by: Daniel Finnerty
 
 ## Introduction
 
-This project provides a clear demonstration of the learnings gained both from the computer infrastructure module, and additional research performed to suplement these learnings. This is achieved through the use of the following Python packages.
+This project provides a clear demonstration of the learnings gained both from the computer infrastructure module, and additional research performed to suplement these learnings. This is done by downloading the previous 5 day hourly stock prices for the five FAANG stocks, saving the data, creating a plot of the results, and saving that to a specific location. This is also automated through the use of GitHub Actions workflow.
+
+All this is achieved through the use of the following Python packages.
 
 - yfinance
 - pandas
 - numpy
 - datetime
-- ipython
 - matplotlib.pyplot
 
-The code, results, continued code explanations and information resources can be found in problems.ipynb.
+The code explanations and information resources can be found in problems.ipynb, with the finished code in `faang.py`.
+
+All downloaded data can be found in the `data` folder, and associated plots in the `plots` folder.
+
 
 ### Running the Notebook locally
 The notebook can be ran locally however, prior to doing this the repository will need to be cloned to your local machine through the following steps:
@@ -47,7 +51,15 @@ python -m notebook
 
 7. Click on the double-arrow icon at the top to 'restart the kernell and run all cells'.
 
+### Running `faang.py`
+
+As a result of the GitHub Actions outlined in the `poblems.ipynb` notebook, the `faang.py` code runs every Saturday morning at 09:05 am however, if the code is wanted to be ran manually it can be done by:
+
+1. In the main GitHub root directory ([Here](https://github.com/danielfinnerty/computer_infrastructure)) click on `Actions`
+2. Click on `Run Faang Script and Commit`
+3. To the righthand side, select `Run workflow` and click the green icon `Run workflow`
+
 ### Output
-From running the script, a plot will be created, titled with the timestamp of when it was ran. This and all other plots can be found in the `data` folder [HERE](https://github.com/danielfinnerty/computer_infrastructure/plots)
+From running the script either manually or automatically per the schedule, a plot will be created, titled with the timestamp of when it was ran. This and all other plots can be found in the `data` folder [HERE](https://github.com/danielfinnerty/computer_infrastructure/plots)
 
 # End
