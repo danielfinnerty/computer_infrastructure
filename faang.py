@@ -65,13 +65,13 @@ plot_data.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 # Current date & time for plot save file
 now = dt.datetime.now()
 
-# File name.
+# File name and locations for saving.
 filename = "./plots/" + now.strftime("%Y%m%d-%H%M%S") + ".png"
 
 # Adjust plot layout area
 # Source: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html
 plt.tight_layout()
 
-# Save figure.
+# Save plot.
 # Source: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.savefig.html
 plt.savefig(filename, dpi=500, bbox_inches= 'tight')
