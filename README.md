@@ -4,9 +4,11 @@ by: Daniel Finnerty
 
 ## Introduction
 
-This project provides a clear demonstration of the learnings gained both from the computer infrastructure module, and additional research performed to suplement these learnings. This is done by downloading the previous 5 day hourly stock prices for the five FAANG stocks, saving the data, creating a plot of the results, and saving that to a specific location. This is also automated through the use of GitHub Actions workflow.
+This project provides a clear demonstration of the learnings gained both from the computer infrastructure module, and through additional research performed as a suplement to these learnings.
 
-All this is achieved through the use of the following Python packages.
+The scope of said project is to perform tasks regarding the five FAANG stocks (Facebook, Apple, Amazon, Netflix, Google); downloading the previous 5 day hourly stock prices for all five, saving the data, creating and saving a plot of the results, and finally automating the entire process through the use of GitHub Actions workflow.
+
+To achieve this, the following Python packages are required.
 
 - yfinance
 - pandas
@@ -14,13 +16,13 @@ All this is achieved through the use of the following Python packages.
 - datetime
 - matplotlib.pyplot
 
-The code explanations and information resources can be found in problems.ipynb, with the finished code in `faang.py`.
+The code explanations and information sources can be found in `problems.ipynb`, with the finished code in `faang.py`.
 
 All downloaded data can be found in the `data` folder, and associated plots in the `plots` folder.
 
 
 ### Running the Notebook locally
-The notebook can be ran locally however, prior to doing this the repository will need to be cloned to your local machine through the following steps:
+The notebook can be ran locally however, prior to doing so the repository must be cloned to your local machine through the following steps:
 
 #### _Using cmder_
 
@@ -47,19 +49,23 @@ git config pull.rebase false
 python -m notebook
 ```
 
-6. Select the 'problems.ipynb' file
+6. Select the `problems.ipynb` file
 
 7. Click on the double-arrow icon at the top to 'restart the kernell and run all cells'.
 
 ### Running `faang.py`
 
-As a result of the GitHub Actions outlined in the `poblems.ipynb` notebook, the `faang.py` code runs every Saturday morning at 09:05 am however, if the code is wanted to be ran manually it can be done by:
+As a result of the GitHub Actions outlined in the `poblems.ipynb` notebook, the `faang.py` code runs every Saturday morning at 09:05am however, to run it manually, the following steps needs to be taken:
 
 1. In the main GitHub root directory ([Here](https://github.com/danielfinnerty/computer_infrastructure)) click on `Actions`
-2. Click on `Run Faang Script and Commit`
+2. Click `Run Faang Script and Commit`
 3. To the righthand side, select `Run workflow` and click the green icon `Run workflow`
+4. Refresh the page
+
+Once refreshed, the new workflow will become visible in the list, with the icon turning to a green tick once complete.
+
 
 ### Output
-From running the script either manually or automatically per the schedule, a plot will be created, titled with the timestamp of when it was ran. This and all other plots can be found in the `data` folder [HERE](https://github.com/danielfinnerty/computer_infrastructure/plots)
+From running the script either manually, through the above steps, or automatically per the schedule, a download of the most recent stock prices will be created, and an associated plot. Both of these will be titled with the timestamp of when created, and can be found along with all previous downloads and plots in the `data` folder [HERE](https://github.com/danielfinnerty/computer_infrastructure/tree/main/data) and `plots` folder [HERE](https://github.com/danielfinnerty/computer_infrastructure/tree/main/plots).
 
 # End
